@@ -1,15 +1,35 @@
 import Card from "../components/Card";
-import { Link } from 'react-router-dom';
+import React from 'react';
+
 
 function Home({
   items,
+  cartItems,
   searchValue,
   setSearchValue,
   onChangeSearchInput,
   onAddToFavorite,
   onAddToCart,
+  isLoading,
   favorites
-}){
+}){  
+
+  const renderItems = () => {
+    const filteredItems = items.filter(items => 
+      items.title.toLowerCase().includes(searchValue.toLowerCase())
+      );
+    return (isLoading ? [...Array(10)] : filteredItems).map((item,index) => (
+        <Card
+        key={index}
+        onFavorite={(obj) => onAddToFavorite(obj)}
+        onPlus={(obj) => onAddToCart(obj)}
+        alreadyFavorite={favorites}
+        loading={isLoading}
+        {... item}
+        />
+  ))
+  }
+
   return(
   <div className="content p-40">
       <div className="d-flex align-center justify-between mb-15">
@@ -22,17 +42,7 @@ function Home({
       </div>
 
       <div className="d-flex flex-wrap">
-        {items
-        .filter(items => items.title.toLowerCase().includes(searchValue.toLowerCase()))
-        .map((item) => (
-          <Card
-          key={item.title}
-          onFavorite={(obj) => onAddToFavorite(obj)}
-          onPlus={(obj) => onAddToCart(obj)}
-          alreadyFavorite={favorites}
-          {... item}
-          />
-        ))}
+        {renderItems()}
       </div>
       
 

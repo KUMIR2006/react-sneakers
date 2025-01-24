@@ -1,7 +1,10 @@
-
+import React from 'react';
 import Card from "../components/Card";
+import AppContext from '../Context';
 
-function Favorites({items, onAddToFavorite}){
+function Favorites({onAddToFavorite}){
+  const {favorites} = React.useContext(AppContext);
+
   return(
   <div className="content p-40">
       <div className="d-flex align-center justify-between mb-15">
@@ -9,9 +12,9 @@ function Favorites({items, onAddToFavorite}){
       </div>
 
       <div className="d-flex flex-wrap">
-        {items.map((item) => (
+        {favorites.map((item) => (
             <Card
-            key={item.title}
+            key={item.id}
             favorited={true}
             onFavorite={(obj) => onAddToFavorite(obj)}
             {... item}

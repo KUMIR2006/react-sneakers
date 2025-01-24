@@ -170,7 +170,11 @@ h5 {
         }
     }
     .greenButton {
-        position: relative;
+      position: relative;
+     
+      &:disabled {
+        animation: button-loading 0.8s ease-in-out infinite;
+      }
 
       &:hover{
         img{
@@ -199,10 +203,28 @@ h5 {
     font-weight: 500;
     cursor: pointer;
     transition: background 0.2 ease-in-out;
+    
+    &:disabled{
+      background-color: #bebebe !important;
+      cursor: default ;
+    }
+
     &:hover {
         background-color: lighten(#9dd558, 5%);
     }
     &:active {
         background-color: darken(#9dd558, 5%);
     }
+}
+
+@keyframes button-loading{
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.65;
+  }
+  100% {
+    opacity: 1;
+  }
 }
