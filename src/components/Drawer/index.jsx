@@ -42,7 +42,7 @@ function Drawer({onClose, onRemove, items = [], opened}){
 <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}>
     <div className={`${styles.drawer} d-flex flex-column`}>
       <h2 className="mb-30 justify-between d-flex">
-        Корзина <img onClick={onClose} className="cu-p" src="/img/btn-remove.svg" alt="Close" />
+        Корзина <img onClick={onClose} className="cu-p" src="img/btn-remove.svg" alt="Close" />
       </h2>
 
 
@@ -56,7 +56,7 @@ function Drawer({onClose, onRemove, items = [], opened}){
                   <p className="mb-5">{obj.title}</p>
                   <b>{obj.price} руб.</b>
                 </div>
-                <img onClick={() => onRemove(obj.id)} className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
+                <img onClick={() => onRemove(obj.id)} className="removeBtn" src="img/btn-remove.svg" alt="Remove" />
               </div>
             ))
             }
@@ -74,7 +74,7 @@ function Drawer({onClose, onRemove, items = [], opened}){
               <b>{totalPrice * 0.05} руб.</b>
             </li>
           </ul>
-          <button disabled={isLoading} onClick={onClickOrder} className="greenButton">Оформить заказ <img src="/img/arrow.svg" alt="Arrow" /></button>
+          <button disabled={isLoading} onClick={onClickOrder} className="greenButton">Оформить заказ <img src="https://kumir2006.github.io/react-sneakers/img/arrow.svg" alt="Arrow" /></button>
         </div>
 </div>
         )
@@ -82,7 +82,7 @@ function Drawer({onClose, onRemove, items = [], opened}){
             <Info
               title={isOrderComplete ? "Заказ оформлен!" : "Корзина пуста"}
               description={isOrderComplete ? `Ваш заказ #${orderId} скоро будет передан курьерской доставке` : "Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ."}
-              image={isOrderComplete ? "/img/complete.svg" : "/img/empty.png"}
+              image={isOrderComplete ? "https://kumir2006.github.io/react-sneakers/img/complete.svg" : "https://kumir2006.github.io/react-sneakers/img/empty.png"}
               />
 
         )

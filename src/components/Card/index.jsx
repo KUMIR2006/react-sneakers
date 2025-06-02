@@ -37,10 +37,10 @@ function Card({id, title, imageUrl, price, onFavorite, onPlus, favorited = false
         </ContentLoader>) :
   (<>
   {onPlus && (<div className={styles.favorite} onClick={() => onClickFavorite()}>        
-      <img src={isFavorite ? "/img/liked.svg" : "/img/unliked.svg"}/>
+      <img src={isFavorite ? "img/liked.svg" : "img/unliked.svg"}/>
     </div>)}
 
-    <img width={133} height={112} src={imageUrl} alt=""/>
+    <img width={133} height={112} src={`https://kumir2006.github.io/react-sneakers/${imageUrl}`} alt=""/>
     <h5>{title}</h5>
     <div className="d-flex justify-between align-center">
       <div className="d-flex flex-column">
@@ -51,7 +51,7 @@ function Card({id, title, imageUrl, price, onFavorite, onPlus, favorited = false
         <img 
         className={styles.plus} 
         onClick={onClickPlus} 
-        src={isItemAdded(id) ? "/img/added.svg" : "/img/add.svg"} 
+        src={isItemAdded(id) ? "img/added.svg" : "img/add.svg"} 
         alt="Plus"/>)}
     </div>  
     </>)
